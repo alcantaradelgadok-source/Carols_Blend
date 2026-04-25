@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carol's Blend – Brownies Artesanales</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #1a0e00;
+    --dark2: #2b1800;
+    --brown: #3d1f00;
+    --gold: #c8882a;
+    --gold-light: #e9a94a;
+    --cream: #f5ede0;
+    --cream2: #faf4eb;
+    --text: #2b1800;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text);
+    background: var(--cream2);
+    overflow-x: hidden;
+  }
+  a {
+  text-decoration: none;
+  color: inherit;
+}
+
+  /* ── NAVBAR ── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    height: 68px;
+    background: var(--dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding-left: 0px;
+  padding-right: 40px;
+  }
+.logo img {
+  height: 75px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+}
+  .logo {
+    display: flex;
+  align-items: center;
+  }
+  .logo span { display: block; font-size: 0.65rem; font-style: normal; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-top: -2px; }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+      color: #ccc;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      transition: color .2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+  .nav-links a.active { border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .nav-icon { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.25); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color .2s; }
+  .nav-icon:hover { border-color: var(--gold); }
+  .nav-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--cream); stroke-width: 1.8; }
+
+    .btn-order-nav { background: var(--gold); color: var(--dark); border: none; padding: 10px 22px; border-radius: 30px; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: background .2s; }
+  .btn-order-nav:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+ .hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--dark);
+}
+
+.hero-img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 60%;
+  object-fit: cover;
+
+  mask-image: linear-gradient(to left, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+}
+ 
+  .hero-img-placeholder svg { width: 260px; height: 260px; opacity: .18; }
+
+  .hero-badge {
+    position: absolute;
+    right: 1%;
+    top: 3%;
+    transform: translateY(-0%);
+    width: 77px; height: 77px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1px;
+    z-index: 2;
+  }
+  .hero-badge span { font-size: .55rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); text-align: center; line-height: 1.3; }
+  .hero-badge svg { width: 18px; height: 18px; fill: var(--gold); }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 64px 56px;
+    max-width: 520px;
+  }
+
+  .hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    line-height: 1.15;
+    color: var(--white);
+    font-weight: 700;
+  }
+  .hero-content h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+    display: block;
+  }
+  .hero-content h1 em::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 80px;
+    background: var(--gold);
+    margin-top: 6px;
+    border-radius: 2px;
+  }
+
+  .hero-content p {
+    margin-top: 18px;
+    color: rgba(255,255,255,.75);
+    font-size: .95rem;
+    line-height: 1.7;
+    max-width: 360px;
+  }
+
+  .hero-btns { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+
+  .btn-whatsapp {
+          display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--dark);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 11px 0;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+      margin-top: auto;
+      transition: background .2s;
+
+  }
+  .btn-whatsapp:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-whatsapp svg { width: 18px; height: 18px; fill: var(--white); }
+
+  .btn-outline {
+    display: flex; align-items: center; gap: 8px;
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,.45);
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: .92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color .2s, transform .15s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-1px); }
+
+  .hero-dots { margin-top: 28px; display: flex; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.3); cursor: pointer; }
+  .dot.active { background: var(--gold); }
+
+  /* ── MAIN SECTION ── */
+  .main-section {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 32px;
+    padding: 52px 48px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* ── PRODUCTS ── */
+  .section-title { text-align: center; margin-bottom: 28px; }
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--dark);
+    font-weight: 400;
+  }
+  .section-title h2 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .section-title h2 svg { vertical-align: middle; margin-left: 6px; width: 22px; height: 22px; }
+  .section-title p { color: #888; font-size: .9rem; margin-top: 4px; }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .product-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    transition: box-shadow .2s, transform .2s;
+    cursor: pointer;
+  }
+  .product-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.13); transform: translateY(-3px); }
+
+  .product-img-wrap {
+    position: relative;
+    height: 160px;
+    background: #3d1f00;
+    overflow: hidden;
+  }
+  .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* placeholder images using CSS gradients */
+  .prod-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .prod-placeholder svg { width: 64px; height: 64px; opacity: .35; fill: var(--gold-light); }
+
+  .badge-popular {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: var(--gold);
+    color: var(--white);
+    font-size: .7rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    letter-spacing: .5px;
+  }
+
+  .product-info { padding: 14px 14px 16px; }
+  .product-info h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--dark); }
+  .product-info p { font-size: .82rem; color: #777; margin-top: 4px; line-height: 1.5; }
+  .product-price {  font-family: 'Playfair Display', serif; font-weight: 700;color: var(--gold); margin-top: 10px; }
+
+  .btn-order-card {
+    width: 100%;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--dark);
+    color: var(--white);
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: .85rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background .2s;
+  }
+  .btn-order-card:hover { background: var(--brown); }
+  .btn-order-card svg { width: 16px; height: 16px; fill: var(--white); }
+
+  /* ── TRUST BADGES ── */
+  .trust-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(0,0,0,.08);
+  }
+  .trust-item { display: flex; align-items: flex-start; gap: 12px; }
+  .trust-icon {
+    width: 42px; height: 42px; min-width: 42px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .trust-icon svg { width: 20px; height: 20px; }
+  .trust-item h4 { font-size: .85rem; font-weight: 700; color: var(--dark); }
+  .trust-item p { font-size: .78rem; color: #888; line-height: 1.4; margin-top: 2px; }
+
+  /* ── COMBO SIDEBAR ── */
+  .combo-card {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 28px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .combo-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(200,136,42,.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .combo-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  .combo-card h3 em { font-style: italic; color: var(--gold-light); font-weight: 600; display: block; }
+  .combo-card .combo-spark {
+    color: var(--gold);
+    font-size: .9rem;
+    letter-spacing: 2px;
+  }
+
+  .combo-card p { font-size: .88rem; color: rgba(255,255,255,.7); margin-top: 10px; line-height: 1.6; }
+
+  .btn-combo {
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: background .2s;
+  }
+  .btn-combo:hover { background: var(--gold-light); }
+
+  .combo-img-placeholder {
+    width: 100%;
+    height: 150px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #3d1f00, #5c2d00);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .combo-img-placeholder svg { width: 50px; height: 50px; opacity: .3; fill: var(--gold-light); }
+
+  .combo-logo {
+    position: absolute;
+    bottom: 10px; right: 10px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: .95rem;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .combo-logo span { display: block; font-size: .5rem; font-style: normal; letter-spacing: 3px; color: var(--gold); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    background: var(--dark);
+    padding: 52px 48px;
+  }
+  .testimonials .section-title h2 { color: var(--white); }
+  .testimonials .section-title h2 em { color: var(--gold-light); }
+  .testimonials .section-title p { color: rgba(255,255,255,.5); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonial-card {
+    background: #2b1800;
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .test-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .test-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--white);
+    font-size: .95rem;
+    flex-shrink: 0;
+  }
+  .test-name { font-weight: 700; font-size: .88rem; color: var(--white); }
+  .test-stars { display: flex; gap: 2px; margin-top: 2px; }
+  .star { color: var(--gold); font-size: .8rem; }
+  .star.half { opacity: .5; }
+  .testimonial-card p { font-size: .82rem; color: rgba(255,255,255,.65); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #110900;
+    padding: 28px 48px;
+    text-align: center;
+    color: rgba(255,255,255,.35);
+    font-size: .82rem;
+  }
+  footer strong { color: var(--gold); }
+
+  /* ── HAMBURGER BUTTON ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+    transition: all .3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE MENU OVERLAY ── */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: var(--dark);
+    padding: 24px 28px 32px;
+    z-index: 99;
+    border-top: 1px solid rgba(255,255,255,.08);
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    transition: color .2s;
+  }
+  .mobile-menu a:hover, .mobile-menu a.active { color: var(--gold); }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu .mobile-order-btn {
+    background: var(--gold);
+    color: var(--white);
+    text-align: center;
+    padding: 13px;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-top: 6px;
+    border-bottom: none !important;
+  }
+  .mobile-menu .mobile-order-btn:hover { background: var(--gold-light); color: var(--white); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    /* NAV */
+    nav { padding: 0 20px; height: 60px; }
+    .logo img { height: 55px; }
+    .nav-links { display: none; }
+    .nav-right { display: none; }
+    .hamburger { display: flex; }
+
+    /* HERO */
+    .hero { min-height: 420px; }
+    .hero-img { width: 100%; opacity: .35; }
+    .hero-content { padding: 36px 24px; max-width: 100%; }
+    .hero-content h1 { font-size: 2rem; }
+    .hero-badge { right: 16px; top: 16px; width: 64px; height: 64px; }
+    .hero-btns { flex-direction: column; gap: 10px; }
+    .btn-whatsapp, .btn-outline { width: 100%; justify-content: center; padding: 13px 20px; }
+
+    /* MAIN SECTION */
+    .main-section {
+      grid-template-columns: 1fr;
+      padding: 28px 20px;
+      gap: 28px;
+    }
+
+    /* PRODUCTS GRID */
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+    /* TRUST ROW */
+    .trust-row { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+    /* COMBO SIDEBAR */
+    .combo-card { border-radius: 12px; }
+
+    /* TESTIMONIALS */
+    .testimonials { padding: 36px 20px; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 14px; }
+
+    /* FOOTER */
+    footer { padding: 24px 20px; }
+  }
+
+  @media (max-width: 400px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .trust-row { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 1.7rem; }
+  }
+
+  /* ══════════════════════════════════
+     MODAL + CARRITO
+  ══════════════════════════════════ */
+
+  /* ── MODAL overlay ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(26,14,0,.65); backdrop-filter: blur(4px);
+    z-index: 200; align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--cream2); border-radius: 20px;
+    width: 100%; max-width: 420px; max-height: 90vh;
+    overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    animation: modalIn .25s ease;
+  }
+  @keyframes modalIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  .modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 22px 16px; border-bottom: 1px solid rgba(0,0,0,.08);
+  }
+  .modal-header h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--dark); }
+  .modal-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #888; padding: 2px 6px; border-radius: 6px; transition: background .2s; }
+  .modal-close:hover { background: rgba(0,0,0,.08); }
+
+  .modal-product {
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px 22px; background: var(--cream); border-radius: 12px; margin: 16px 16px 0;
+  }
+  .modal-product img { width: 80px; height: 80px; object-fit: cover; border-radius: 10px; flex-shrink: 0; }
+  .modal-product-info h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--dark); }
+  .modal-product-info p { font-size: .82rem; color: #888; margin-top: 3px; line-height: 1.4; }
+  .modal-price { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--gold); margin-top: 5px; font-size: 1rem; }
+
+  .modal-section { padding: 16px 22px 0; }
+  .modal-label { font-size: .8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--dark); margin-bottom: 10px; display: block; }
+
+  .qty-row { display: flex; align-items: center; gap: 14px; }
+  .qty-btn { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--gold); background: none; color: var(--gold); font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s, color .2s; }
+  .qty-btn:hover { background: var(--gold); color: #fff; }
+  .qty-value { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--dark); min-width: 20px; text-align: center; }
+
+  .toppings-list { display: flex; flex-direction: column; }
+  .topping-item { display: flex; align-items: center; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid rgba(0,0,0,.07); cursor: pointer; }
+  .topping-item:last-child { border-bottom: none; }
+  .topping-left { display: flex; align-items: center; gap: 12px; }
+  .topping-check { width: 20px; height: 20px; border: 1.5px solid #ccc; border-radius: 5px; display: flex; align-items: center; justify-content: center; transition: all .2s; flex-shrink: 0; }
+  .topping-item.checked .topping-check { background: var(--gold); border-color: var(--gold); }
+  .topping-item.checked .topping-check::after { content: '✓'; color: #fff; font-size: .75rem; font-weight: 700; }
+  .topping-name { font-size: .9rem; color: var(--dark); }
+  .topping-price-label { font-size: .85rem; color: var(--gold); font-weight: 700; }
+
+  .modal-summary { margin: 16px 16px 0; background: var(--cream); border-radius: 12px; padding: 14px 16px; }
+  .summary-row { display: flex; justify-content: space-between; font-size: .85rem; color: #777; margin-bottom: 6px; }
+  .summary-total { display: flex; justify-content: space-between; font-weight: 700; font-size: 1rem; color: var(--dark); margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,.1); }
+  .summary-total span:last-child { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+
+  /* DOS BOTONES modal footer */
+  .modal-footer { padding: 16px 16px 20px; display: flex; flex-direction: column; gap: 10px; }
+  .btn-add-cart {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; background: var(--gold); color: #fff;
+    border: none; border-radius: 12px; padding: 14px;
+    font-size: .95rem; font-weight: 700; cursor: pointer; transition: background .2s;
+  }
+  .btn-add-cart:hover { background: var(--gold-light); }
+  .btn-direct-wa {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; background: transparent; color: var(--dark);
+    border: 1.5px solid var(--gold); border-radius: 12px; padding: 12px;
+    font-size: .9rem; font-weight: 700; cursor: pointer; transition: background .2s, color .2s;
+  }
+  .btn-direct-wa:hover { background: var(--gold); color: #fff; }
+  .btn-direct-wa svg, .btn-add-cart svg { width: 18px; height: 18px; fill: currentColor; }
+  .modal-ws-note { text-align: center; font-size: .75rem; color: #aaa; display: flex; align-items: center; justify-content: center; gap: 5px; }
+
+  /* ── CARRITO FLOTANTE ── */
+  .cart-fab {
+    position: fixed; bottom: 28px; right: 24px;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: var(--gold); color: #fff;
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 24px rgba(0,0,0,.3);
+    z-index: 150; transition: transform .2s, background .2s;
+  }
+  .cart-fab:hover { transform: scale(1.08); background: var(--gold-light); }
+  .cart-fab svg { width: 26px; height: 26px; }
+  .cart-badge {
+    position: absolute; top: -4px; right: -4px;
+    background: #e53935; color: #fff;
+    font-size: .7rem; font-weight: 700;
+    width: 20px; height: 20px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid #fff;
+    display: none;
+  }
+
+  /* ── PANEL CARRITO ── */
+  .cart-panel-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(26,14,0,.5); z-index: 300;
+    backdrop-filter: blur(3px);
+  }
+  .cart-panel-overlay.open { display: block; }
+  .cart-panel {
+    position: fixed; top: 0; right: -100%;
+    width: 100%; max-width: 380px; height: 100%;
+    background: var(--cream2); z-index: 301;
+    display: flex; flex-direction: column;
+    box-shadow: -6px 0 30px rgba(0,0,0,.25);
+    transition: right .3s ease;
+  }
+  .cart-panel.open { right: 0; }
+
+  .cart-panel-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 24px 24px;
+    background: linear-gradient(135deg, var(--dark) 0%, #3d1f00 100%);
+    border-bottom: 2px solid var(--gold);
+    position: relative; overflow: hidden;
+  }
+  .cart-panel-header::before {
+    content: '♡'; position: absolute; right: 60px; top: 50%;
+    transform: translateY(-50%); font-size: 4rem;
+    color: rgba(200,136,42,.08); pointer-events: none;
+  }
+  .cart-header-left { display: flex; flex-direction: column; gap: 2px; }
+  .cart-header-eyebrow { font-size: .7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  .cart-panel-header h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: #fff; font-weight: 400; }
+  .cart-panel-close {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+    color: #aaa; font-size: 1rem; cursor: pointer;
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .2s; flex-shrink: 0;
+  }
+  .cart-panel-close:hover { background: rgba(255,255,255,.2); color: #fff; }
+
+  .cart-items { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 12px; background: var(--cream2); }
+  .cart-empty { text-align: center; color: #bbb; font-size: .9rem; margin-top: 70px; line-height: 2; }
+  .cart-empty .empty-icon {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: var(--cream); border: 2px dashed var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px; font-size: 1.8rem; opacity: .6;
+  }
+  .cart-empty p { color: #aaa; font-size: .85rem; }
+
+  .cart-item {
+    background: #fff; border-radius: 14px; padding: 14px;
+    display: flex; gap: 12px; align-items: flex-start;
+    box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    border-left: 3px solid var(--gold); transition: transform .2s;
+  }
+  .cart-item:hover { transform: translateX(2px); }
+  .cart-item img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; flex-shrink: 0; }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 700; color: var(--dark); }
+  .cart-item-qty { display: inline-block; background: var(--cream); color: var(--gold); font-size: .7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; letter-spacing: .5px; }
+  .cart-item-toppings { font-size: .75rem; color: #999; margin-top: 4px; line-height: 1.5; }
+  .cart-item-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+  .cart-item-price { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--gold); font-size: 1rem; }
+  .cart-item-remove { background: #fef2f2; border: none; color: #e57373; cursor: pointer; font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; transition: background .2s, color .2s; }
+  .cart-item-remove:hover { background: #e53935; color: #fff; }
+
+  .cart-footer { padding: 18px 18px 24px; border-top: 1px solid rgba(0,0,0,.07); background: #fff; }
+  .cart-total-row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--cream); border-radius: 12px;
+    padding: 14px 16px; margin-bottom: 14px;
+  }
+  .cart-total-label { font-size: .85rem; color: #888; font-weight: 600; letter-spacing: .5px; }
+  .cart-total-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--gold); }
+  .btn-checkout {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: #fff; border: none; border-radius: 14px; padding: 16px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(200,136,42,.35); transition: transform .2s, box-shadow .2s;
+  }
+  .btn-checkout:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,136,42,.45); }
+  .btn-checkout svg { width: 20px; height: 20px; fill: #fff; }
+  .btn-clear-cart { width: 100%; background: none; border: none; color: #ccc; font-size: .78rem; cursor: pointer; margin-top: 10px; text-align: center; transition: color .2s; letter-spacing: .5px; }
+  .btn-clear-cart:hover { color: #e53935; }
+
+  /* product-card pointer */
+  .product-card { cursor: pointer; }
+
+  /* responsive carrito */
+  @media (max-width: 480px) {
+    .cart-panel { max-width: 100%; }
+    .cart-fab { bottom: 20px; right: 16px; width: 52px; height: 52px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <img src="logofin.png" alt="Carol's Blend">
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="carols_blend.html" class="active">Inicio</a></li>
+    <li><a href="menu.html">Menú</a></li>
+    <li><a href="combos.html">Combos</a></li>
+    <li><a href="sobre-nosotros.html"> Sobre nosotros</a></li>
+    
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+
+  <!-- Hamburger (móvil) -->
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="nav-right">
+    <!-- WhatsApp icon -->
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.426A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.031-1.088l-.29-.172-2.895.845.874-2.827-.189-.302A7.967 7.967 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill-rule="evenodd"/></svg>
+    </div>
+    <!-- Instagram icon -->
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24" stroke="var(--cream)" fill="none" stroke-width="1.8">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="var(--cream)" stroke="none"/>
+      </svg>
+    </div>
+    <a href="https://www.instagram.com/carols_blend1/" target="_blank" class="btn-order-nav">
+  Ordenar ahora
+</a>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="carols_blend.html" class="active">Inicio</a>
+  <a href="menu.html">Menú</a>
+  <a href="combos.html">Combos</a>
+  <a href="sobre-nosotros.html">Sobre nosotros</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20%F0%9F%8D%AB%20Quisiera%20realizar%20un%20pedido." class="mobile-order-btn" target="_blank">Ordenar ahora →</a>
+</div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn  = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  // Cerrar menú al hacer clic fuera
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const btn  = document.getElementById('hamburger');
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+    }
+  });
+</script>
+<section class="hero">
+  <img src="brownie-bg.png" class="hero-img" alt="Brownie">
+  
+
+
+
+  <div class="hero-badge">
+    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <span>HECHOS CON<br>AMOR</span>
+  </div>
+
+  <div class="hero-content">
+    <h1>
+      Brownies artesanales
+      <em>que no vas a olvidar</em>
+    </h1>
+    <p>En Carol's Blend, cada brownie está hecho con amor, ingredientes premium y ese toque especial que los hace únicos.</p>
+    <div class="hero-btns">
+     <a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20%F0%9F%8D%AB%20Quisiera%20ordenar%20un%20brownie" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.426A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.031-1.088l-.29-.172-2.895.845.874-2.827-.189-.302A7.967 7.967 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill-rule="evenodd"/></svg>
+        Ordenar por WhatsApp
+      </button>
+      <a href="menu.html" class="btn-outline">
+  Ver menú ▾
+</a>
+    </div>
+    <div class="hero-dots">
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="main-section">
+  <div>
+    <!-- Section title -->
+    <div class="section-title">
+      <h2>Nuestros <em>favoritos</em>
+        <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </h2>
+      <p>Descubre nuestros brownies más pedidos</p>
+    </div>
+
+    <!-- Products -->
+    <div class="products-grid">
+
+      <!-- Card 1 -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="prod-placeholder" style="background:linear-gradient(135deg,#2b1800,#5c2d00);">
+                        <img src="coco.png" class="product-img" alt="Brownie Oreo">
+
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>El Clásico Blend</h3>
+          <p>Brownie con toque de dulce de leche y coco rallado.</p>
+          <div class="product-price">RD$150</div>
+<a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20%F0%9F%8D%AB%20Quisiera%20ordenar%20*El%20Clasico%20Blend*%20(RD%24150).%20%C2%BFEst%C3%A1%20disponible%3F%20%E2%9C%A8" class="btn-order-card" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.426A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.031-1.088l-.29-.172-2.895.845.874-2.827-.189-.302A7.967 7.967 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill-rule="evenodd"/></svg>
+  Ordenar
+</a>        </div>
+      </div>
+
+      <!-- Card 2 (popular) -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <span class="badge-popular">Más pedido</span>
+          <div class="prod-placeholder" style="background:linear-gradient(135deg,#3d1000,#7a2600);">
+                        <img src="oreo.png" class="product-img" alt="Brownie Oreo">
+
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>El Cookie Blend</h3>
+          <p>Brownie de chocolate con galletas oreo y dulce de leche.</p>
+          <div class="product-price">RD$150</div>
+<a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20%F0%9F%8D%AB%20Quisiera%20ordenar%20*El%20Cookie%20Blend*%20(RD%24150).%20%C2%BFEst%C3%A1%20disponible%3F%20%E2%9C%A8" class="btn-order-card" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.426A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.031-1.088l-.29-.172-2.895.845.874-2.827-.189-.302A7.967 7.967 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill-rule="evenodd"/></svg>
+  Ordenar
+</a>        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="prod-placeholder" style="background:linear-gradient(135deg,#2b1800,#4a2000);">
+                        <img src="cherri.png" class="product-img" alt="Brownie Oreo">
+
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>El Romance</h3>
+          <p>Brownie tipico con  caramelo y Cerezas marrasquino.</p>
+<div class="product-price">RD$150</div>
+<a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20%F0%9F%8D%AB%20Quisiera%20ordenar%20*El%20Romance%20Blend*%20(RD%24150).%20%C2%BFEst%C3%A1%20disponible%3F%20%E2%9C%A8" class="btn-order-card" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.426A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.031-1.088l-.29-.172-2.895.845.874-2.827-.189-.302A7.967 7.967 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill-rule="evenodd"/></svg>
+  Ordenar
+</a>        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="prod-placeholder" style="background:linear-gradient(135deg,#1a0e00,#3d1f00);">
+            <img src="marmol.png" class="product-img" alt="Brownie Oreo">
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>El Marmoleado Blend</h3>
+          <p>Brownie de chocolate con cheesecake.</p>
+          <div class="product-price">RD$180</div>
+<a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20%F0%9F%8D%AB%20Quisiera%20ordenar%20*El%20Marmoleado%20Blend*%20(RD%24150).%20%C2%BFEst%C3%A1%20disponible%3F%20%E2%9C%A8" class="btn-order-card" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.426A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.031-1.088l-.29-.172-2.895.845.874-2.827-.189-.302A7.967 7.967 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill-rule="evenodd"/></svg>
+  Ordenar
+</a>        </div>
+      </div>
+
+    </div><!-- /products-grid -->
+
+    <!-- Trust badges -->
+    <div class="trust-row">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M12 2C8 2 5 5 5 8c0 5 7 13 7 13s7-8 7-13c0-3-3-6-7-6z"/><circle cx="12" cy="8" r="2"/></svg>
+        </div>
+        <div>
+          <h4>Ingredientes premium</h4>
+          <p>Utilizamos solo ingredientes de la más alta calidad.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <div>
+          <h4>Hechos con amor</h4>
+          <p>Cada brownie es preparado con dedicación y cariño.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div>
+          <h4>Entregas rápidas</h4>
+          <p>Entregamos tu pedido de forma rápida y segura.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h4>Pagos seguros</h4>
+          <p>Tu compra está protegida en todo momento.</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /left col -->
+
+  <!-- COMBO SIDEBAR -->
+  <div class="combo-card">
+    <div class="combo-spark">✦ &nbsp; ✦ &nbsp; ✦</div>
+    <h3 style="margin-top:10px">Combos
+      <em>especiales</em>
+    </h3>
+    
+    <svg viewBox="0 0 24 24" fill="var(--gold)" width="20" height="20" style="margin-top:6px"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <p>Perfectos para compartir o regalar.</p>
+<a href="combos.html" class="btn-combo">Ver todos los combos</a>
+    <div class="combo-img-placeholder">
+      <!-- Box of brownies illustration -->
+                   <img src="especial.png" class="combo-img-placeholder" alt="Brownie Oreo">
+
+      <div class="combo-logo">
+        Carol's
+        <span>BLEND</span>
+      </div>
+    </div>
+  </div>
+</div><!-- /main-section -->
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-title">
+    <h2>Lo que dicen <em>nuestros clientes</em>
+      <svg viewBox="0 0 24 24" fill="var(--gold-light)" width="22" height="22"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </h2>
+  </div>
+
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <div class="test-header">
+        <div class="test-avatar">D</div>
+        <div>
+          <div class="test-name">Damaris F.</div>
+          <div class="test-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span>
+          </div>
+        </div>
+      </div>
+      <p>"Los mejores brownies que he probado en mi vida. El de Nutella es una experiencia increíble."</p>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="test-header">
+        <div class="test-avatar" style="background:var(--brown)">C</div>
+        <div>
+          <div class="test-name">Camila</div>
+          <div class="test-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+        </div>
+      </div>
+      <p>"Pedí el combo para el cumpleaños de mi hija y quedaron todos encantados. ¡Volveré a pedir!"</p>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="test-header">
+        <div class="test-avatar" style="background:#4a2000">M</div>
+        <div>
+          <div class="test-name">María R.</div>
+          <div class="test-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span>
+          </div>
+        </div>
+      </div>
+      <p>"Entrega súper rápida y el empaque es muy bonito. El brownie con helado es mi favorito."</p>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="test-header">
+        <div class="test-avatar" style="background:#5c2d00">J</div>
+        <div>
+          <div class="test-name">Juan P.</div>
+          <div class="test-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span>
+          </div>
+        </div>
+      </div>
+      <p>"El brownie Oreo es adictivo. Ya lo he pedido tres veces esta semana. Sin dudas."</p>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="test-header">
+        <div class="test-avatar" style="background:var(--gold)">A</div>
+        <div>
+          <div class="test-name">Ana Gabriela</div>
+          <div class="test-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+        </div>
+      </div>
+      <p>"Los ingredientes son de alta calidad, se nota en cada mordida. ¡Excelente servicio!"</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CARRITO FLOTANTE ── -->
+<button class="cart-fab" id="cartFab" onclick="openCart()" title="Ver carrito">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <path d="M16 10a4 4 0 01-8 0"/>
+  </svg>
+  <span class="cart-badge" id="cartBadge">0</span>
+</button>
+
+<!-- ── PANEL CARRITO ── -->
+<div class="cart-panel-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-panel-header">
+    <div class="cart-header-left">
+      <span class="cart-header-eyebrow">Carol's Blend</span>
+      <h2>Mi carrito</h2>
+    </div>
+    <button class="cart-panel-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="empty-icon">🍫</div>
+      <p>Tu carrito está vacío.<br>¡Agrega tus brownies favoritos!</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total del pedido</span>
+      <span class="cart-total-val" id="cartTotal">RD$0</span>
+    </div>
+    <button class="btn-checkout" onclick="checkoutWA()">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.426A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.031-1.088l-.29-.172-2.895.845.874-2.827-.189-.302A7.967 7.967 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill-rule="evenodd"/></svg>
+      Enviar pedido por WhatsApp
+    </button>
+    <button class="btn-clear-cart" onclick="clearCart()">Vaciar carrito</button>
+  </div>
+</div>
+
+<!-- ── MODAL PERSONALIZA ── -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <h2>Personaliza tu pedido</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-product">
+      <img id="modal-img" src="" alt="">
+      <div class="modal-product-info">
+        <h3 id="modal-name"></h3>
+        <p id="modal-desc"></p>
+        <div class="modal-price" id="modal-base-price"></div>
+      </div>
+    </div>
+    <div class="modal-section">
+      <span class="modal-label">Cantidad</span>
+      <div class="qty-row">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <span class="qty-value" id="qty-display">1</span>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+    </div>
+    <div class="modal-section" style="margin-top:16px;">
+      <span class="modal-label">Toppings <span style="font-weight:400;color:#aaa;text-transform:none;letter-spacing:0;">(opcional)</span></span>
+      <div class="toppings-list">
+        <div class="topping-item" onclick="toggleTopping(this,'Chispas de chocolate',25)">
+          <div class="topping-left"><div class="topping-check"></div><span class="topping-name">Chispas de chocolate</span></div>
+          <span class="topping-price-label">+RD$25</span>
+        </div>
+        <div class="topping-item" onclick="toggleTopping(this,'Almendra / Nueces',25)">
+          <div class="topping-left"><div class="topping-check"></div><span class="topping-name">Almendra / Nueces</span></div>
+          <span class="topping-price-label">+RD$25</span>
+        </div>
+        <div class="topping-item" onclick="toggleTopping(this,'Oreo',20)">
+          <div class="topping-left"><div class="topping-check"></div><span class="topping-name">Oreo</span></div>
+          <span class="topping-price-label">+RD$20</span>
+        </div>
+        <div class="topping-item" onclick="toggleTopping(this,'M&amp;Ms',20)">
+          <div class="topping-left"><div class="topping-check"></div><span class="topping-name">M&amp;M's</span></div>
+          <span class="topping-price-label">+RD$20</span>
+        </div>
+        <div class="topping-item" onclick="toggleTopping(this,'Maní',15)">
+          <div class="topping-left"><div class="topping-check"></div><span class="topping-name">Maní</span></div>
+          <span class="topping-price-label">+RD$15</span>
+        </div>
+        <div class="topping-item" onclick="toggleTopping(this,'Coco',15)">
+          <div class="topping-left"><div class="topping-check"></div><span class="topping-name">Coco</span></div>
+          <span class="topping-price-label">+RD$15</span>
+        </div>
+        <div class="topping-item" onclick="toggleTopping(this,'Cherry',20)">
+          <div class="topping-left"><div class="topping-check"></div><span class="topping-name">Cherry</span></div>
+          <span class="topping-price-label">+RD$20</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-summary">
+      <div class="summary-row"><span>Precio base</span><span id="summary-base"></span></div>
+      <div class="summary-row" id="summary-top-row" style="display:none;"><span id="summary-top-label"></span><span id="summary-top-val"></span></div>
+      <div class="summary-row" id="summary-qty-row" style="display:none;"><span id="summary-qty-label"></span><span id="summary-qty-val"></span></div>
+      <div class="summary-total"><span>Total</span><span id="summary-total"></span></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-add-cart" onclick="addToCart()">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        Agregar al carrito
+      </button>
+      <button class="btn-direct-wa" onclick="sendDirectWA()">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.426A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.031-1.088l-.29-.172-2.895.845.874-2.827-.189-.302A7.967 7.967 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill-rule="evenodd"/></svg>
+        Ordenar directo por WhatsApp
+      </button>
+      <div class="modal-ws-note">✓ Tu pedido se enviará por WhatsApp</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ── PRODUCTOS ── */
+  const productos = {
+    'El Clásico Blend':    { img: 'coco.png',   desc: 'Brownie con toque de dulce de leche y coco rallado.',              price: 150 },
+    'El Cookie Blend':     { img: 'oreo.png',   desc: 'Brownie de chocolate con galletas oreo y dulce de leche.',         price: 150 },
+    'El Romance':          { img: 'cherri.png', desc: 'Brownie típico con caramelo y Cerezas marrasquino.',               price: 150 },
+    'El Marmoleado Blend': { img: 'marmol.png', desc: 'Brownie de chocolate con cheesecake.',                             price: 180 },
+  };
+
+  /* ── ESTADO ── */
+  let currentProduct = null;
+  let qty = 1;
+  let toppingsTotal = 0;
+  let selectedToppings = [];
+  let cart = JSON.parse(localStorage.getItem('carols_cart')) || [];
+  updateCartUI();
+
+  /* ── ABRIR MODAL ── */
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('.btn-order-card')) return;
+      openModal(this.querySelector('h3').textContent.trim());
+    });
+  });
+  document.querySelectorAll('.btn-order-card').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault(); e.stopPropagation();
+      openModal(this.closest('.product-card').querySelector('h3').textContent.trim());
+    });
+  });
+
+  function openModal(name) {
+    const p = productos[name];
+    if (!p) return;
+    currentProduct = { name, ...p };
+    qty = 1; toppingsTotal = 0; selectedToppings = [];
+    document.querySelectorAll('.topping-item').forEach(t => t.classList.remove('checked'));
+    document.getElementById('modal-img').src = p.img;
+    document.getElementById('modal-name').textContent = name;
+    document.getElementById('modal-desc').textContent = p.desc;
+    document.getElementById('modal-base-price').textContent = 'RD$' + p.price;
+    document.getElementById('qty-display').textContent = '1';
+    updateSummary();
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  /* ── CANTIDAD Y TOPPINGS ── */
+  function changeQty(d) {
+    qty = Math.max(1, qty + d);
+    document.getElementById('qty-display').textContent = qty;
+    updateSummary();
+  }
+  function toggleTopping(el, name, price) {
+    el.classList.toggle('checked');
+    if (el.classList.contains('checked')) {
+      selectedToppings.push({ name, price }); toppingsTotal += price;
+    } else {
+      selectedToppings = selectedToppings.filter(t => t.name !== name); toppingsTotal -= price;
+    }
+    updateSummary();
+  }
+  function updateSummary() {
+    if (!currentProduct) return;
+    const base = currentProduct.price;
+    const total = (base + toppingsTotal) * qty;
+    document.getElementById('summary-base').textContent = 'RD$' + base;
+    const tRow = document.getElementById('summary-top-row');
+    const qRow = document.getElementById('summary-qty-row');
+    if (toppingsTotal > 0) {
+      tRow.style.display = 'flex';
+      document.getElementById('summary-top-label').textContent = 'Toppings (' + selectedToppings.length + ')';
+      document.getElementById('summary-top-val').textContent = '+RD$' + toppingsTotal;
+    } else { tRow.style.display = 'none'; }
+    if (qty > 1) {
+      qRow.style.display = 'flex';
+      document.getElementById('summary-qty-label').textContent = 'Cantidad × ' + qty;
+      document.getElementById('summary-qty-val').textContent = 'RD$' + ((base + toppingsTotal) * qty);
+    } else { qRow.style.display = 'none'; }
+    document.getElementById('summary-total').textContent = 'RD$' + total;
+  }
+
+  /* ── AGREGAR AL CARRITO ── */
+  function addToCart() {
+    if (!currentProduct) return;
+    const item = {
+      id: Date.now(),
+      name: currentProduct.name,
+      img: currentProduct.img,
+      price: currentProduct.price,
+      qty,
+      toppings: [...selectedToppings],
+      toppingsTotal,
+      total: (currentProduct.price + toppingsTotal) * qty
+    };
+    cart.push(item);
+    updateCartUI();
+    closeModal();
+    // Animación badge
+    const badge = document.getElementById('cartBadge');
+    badge.style.transform = 'scale(1.4)';
+    setTimeout(() => badge.style.transform = 'scale(1)', 200);
+  }
+
+  /* ── ORDENAR DIRECTO WS ── */
+  function sendDirectWA() {
+    if (!currentProduct) return;
+    const total = (currentProduct.price + toppingsTotal) * qty;
+    let msg = `Hola Carol's Blend! 🍫 Quisiera ordenar:\n\n`;
+    msg += `*${currentProduct.name}* × ${qty}\n`;
+    if (selectedToppings.length > 0) msg += `Toppings: ${selectedToppings.map(t => t.name).join(', ')}\n`;
+    msg += `\n*Total: RD$${total}*\n\n¿Está disponible? ✨`;
+    window.open(`https://wa.me/18096423773?text=${encodeURIComponent(msg)}`, '_blank');
+    closeModal();
+  }
+
+  /* ── UI CARRITO ── */
+  function updateCartUI() {
+    localStorage.setItem('carols_cart', JSON.stringify(cart));
+    const totalItems = cart.reduce((s, i) => s + i.qty, 0);
+    const totalPrice = cart.reduce((s, i) => s + i.total, 0);
+    const badge = document.getElementById('cartBadge');
+    badge.textContent = totalItems;
+    badge.style.display = totalItems > 0 ? 'flex' : 'none';
+    document.getElementById('cartTotal').textContent = 'RD$' + totalPrice;
+    const empty = document.getElementById('cartEmpty');
+    const footer = document.getElementById('cartFooter');
+    const itemsEl = document.getElementById('cartItems');
+    if (cart.length === 0) {
+      empty.style.display = 'block';
+      footer.style.display = 'none';
+      itemsEl.innerHTML = '';
+      itemsEl.appendChild(empty);
+      return;
+    }
+    empty.style.display = 'none';
+    footer.style.display = 'block';
+    // Renderizar items
+    const existing = itemsEl.querySelectorAll('.cart-item');
+    existing.forEach(el => el.remove());
+    cart.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'cart-item';
+      div.innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}<span class="cart-item-qty">× ${item.qty}</span></div>
+          ${item.toppings.length > 0 ? `<div class="cart-item-toppings">Toppings: ${item.toppings.map(t=>t.name).join(', ')}</div>` : ''}
+          <div class="cart-item-bottom">
+            <span class="cart-item-price">RD$${item.total}</span>
+            <button class="cart-item-remove" onclick="removeItem(${item.id})">Quitar</button>
+          </div>
+        </div>`;
+      itemsEl.appendChild(div);
+    });
+  }
+
+  function removeItem(id) {
+    cart = cart.filter(i => i.id !== id);
+    updateCartUI();
+  }
+  function clearCart() {
+    cart = [];
+    updateCartUI();
+  }
+
+  /* ── ABRIR / CERRAR CARRITO ── */
+  function openCart() {
+    document.getElementById('cartPanel').classList.add('open');
+    document.getElementById('cartOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCart() {
+    document.getElementById('cartPanel').classList.remove('open');
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ── CHECKOUT WS ── */
+  function checkoutWA() {
+    if (cart.length === 0) return;
+    const total = cart.reduce((s, i) => s + i.total, 0);
+    let msg = `Hola Carol's Blend! 🍫 Quisiera hacer el siguiente pedido:\n\n`;
+    cart.forEach((item, i) => {
+      msg += `*${i+1}. ${item.name}* × ${item.qty}`;
+      if (item.toppings.length > 0) msg += `\n   Toppings: ${item.toppings.map(t=>t.name).join(', ')}`;
+      msg += `\n   Subtotal: RD$${item.total}\n\n`;
+    });
+    msg += `*Total general: RD$${total}*\n\n¿Pueden confirmar disponibilidad y entrega? ✨`;
+    window.open(`https://wa.me/18096423773?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeCart(); } });
+</script>
+
+</body>
+</html>

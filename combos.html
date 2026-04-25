@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carol's Blend — Combos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream:    #F5EFE6;
+      --cream2:   #faf4eb;
+      --dark:     #1A0F07;
+      --dark2:    #2b1800;
+      --brown:    #3B1E0A;
+      --gold:     #C8973A;
+      --gold-lt:  #E8BA68;
+      --gold-light: #E8BA68;
+      --card-bg:  #FDFAF5;
+      --text:     #2C1A0E;
+      --muted:    #7A5C42;
+      --white:    #ffffff;
+      --radius:   18px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Lato', sans-serif;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 50px;
+      background: var(--dark);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 26px;
+      color: #fff;
+      line-height: 1;
+      text-decoration: none;
+    }
+    .nav-logo span {
+      display: block;
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #ccc;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a.active {
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .nav-icon {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid #555;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      transition: border-color .2s, color .2s;
+      cursor: pointer;
+    }
+    .nav-icon:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--cream); stroke-width: 1.8; }
+
+    .btn-order-nav { background: var(--gold); color: var(--dark); border: none; padding: 10px 22px; border-radius: 30px; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: background .2s; }
+    .btn-order-nav:hover { background: var(--gold-lt); }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      background: var(--dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 360px;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 70px;
+    }
+    .hero-text .eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      font-size: 20px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(56px, 8vw, 90px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .hero-divider .line { flex: 1; height: 1px; background: var(--gold); opacity: .5; }
+    .hero-divider svg { color: var(--gold); }
+
+    .hero-text p {
+      color: #bbb;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 340px;
+    }
+
+    /* ── HERO IMAGE ── */
+    .hero-image {
+      background-image: url('TU_IMAGEN_HERO_COMBOS.jpg');
+      background-size: cover;
+      background-position: center;
+      background-color: #2a1505;
+      min-height: 320px;
+      position: relative;
+    }
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--dark) 0%, transparent 30%);
+    }
+    .hero-image .placeholder-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      flex-direction: column;
+      gap: 8px;
+      color: rgba(255,255,255,.3);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .hero-image .placeholder-label svg { opacity: .3; }
+
+    /* ── COMBOS GRID ─────────────────────────────────── */
+    .section-header {
+      text-align: center;
+      padding: 54px 20px 36px;
+    }
+    .section-header .heart {
+      color: var(--gold);
+      font-size: 18px;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: 6px;
+      color: var(--text);
+    }
+    .section-header .lines {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 10px;
+    }
+    .section-header .lines span { display: block; width: 60px; height: 1px; background: var(--gold); }
+
+    .combos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      padding: 0 70px 70px;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: 30px;
+    }
+
+    /* ── COMBO CARD ─────────────────────────────────── */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0,0,0,.14);
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+      background: #e8ddd0;
+    }
+
+    .card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, #e8ddd0 0%, #d4c4b0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #b09878;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .card-img-placeholder svg { opacity: .5; }
+
+    .card-body {
+      padding: 24px 24px 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--text);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .card-heart {
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .card-body p {
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .card-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--gold);
+      font-weight: 700;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* Botones de la card de combo */
+    .card-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .btn-add-combo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      width: 100%;
+      transition: background .2s;
+    }
+    .btn-add-combo:hover { background: var(--gold-lt); }
+    .btn-add-combo svg { width: 16px; height: 16px; fill: currentColor; }
+
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--dark);
+      border: 1.5px solid var(--dark);
+      border-radius: 30px;
+      padding: 11px 28px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+      width: 100%;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .btn-wa:hover { background: var(--dark); color: #fff; }
+    .btn-wa svg { width: 15px; height: 15px; fill: currentColor; }
+
+    /* ── CTA BAR ─────────────────────────────────────── */
+    .cta-bar {
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 36px 70px;
+      margin-top: 20px;
+      gap: 24px;
+    }
+    .cta-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .cta-bar-left svg { color: var(--gold); flex-shrink: 0; }
+    .cta-bar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+    .cta-bar p { color: #aaa; font-size: 14px; }
+
+    .btn-cta-wa {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: 30px;
+      padding: 14px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .btn-cta-wa:hover { background: var(--gold-lt); }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: var(--muted);
+    }
+    footer .line { width: 50px; height: 1px; background: var(--gold); opacity: .5; }
+    footer span {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+    }
+    footer .heart { color: var(--gold); font-size: 13px; }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-text { padding: 40px 30px; }
+      .hero-image { min-height: 220px; }
+      .combos-grid { grid-template-columns: 1fr; padding: 0 20px 40px; }
+      .cta-bar { flex-direction: column; padding: 32px 24px; text-align: center; }
+      .cta-bar-left { flex-direction: column; }
+    }
+    @media (min-width: 601px) and (max-width: 900px) {
+      .combos-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 57px; left: 0; right: 0;
+      background: #1A0F07;
+      padding: 24px 28px 32px;
+      z-index: 99;
+      border-top: 1px solid rgba(255,255,255,.08);
+      gap: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      text-decoration: none;
+      color: #ccc;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      transition: color .2s;
+    }
+    .mobile-menu a:hover, .mobile-menu a.active { color: #C8973A; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .mobile-order-btn {
+      background: #C8973A;
+      color: #fff;
+      text-align: center;
+      padding: 13px;
+      border-radius: 8px;
+      font-weight: 700;
+      margin-top: 6px;
+      border-bottom: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-right  { display: none; }
+      .hamburger  { display: flex; }
+    }
+
+    /* ══════════════════════════════════
+       CARRITO — MISMO ESTILO QUE CAROLS_BLEND
+    ══════════════════════════════════ */
+
+    /* ── CARRITO FLOTANTE ── */
+    .cart-fab {
+      position: fixed; bottom: 28px; right: 24px;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--gold); color: #fff;
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(0,0,0,.3);
+      z-index: 150; transition: transform .2s, background .2s;
+    }
+    .cart-fab:hover { transform: scale(1.08); background: var(--gold-light); }
+    .cart-fab svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 1.8; }
+    .cart-badge {
+      position: absolute; top: -4px; right: -4px;
+      background: #e53935; color: #fff;
+      font-size: .7rem; font-weight: 700;
+      width: 20px; height: 20px; border-radius: 50%;
+      display: none; align-items: center; justify-content: center;
+      border: 2px solid #fff;
+    }
+
+    /* ── PANEL CARRITO ── */
+    .cart-panel-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(26,14,0,.5); z-index: 300;
+      backdrop-filter: blur(3px);
+    }
+    .cart-panel-overlay.open { display: block; }
+    .cart-panel {
+      position: fixed; top: 0; right: -100%;
+      width: 100%; max-width: 380px; height: 100%;
+      background: var(--cream2); z-index: 301;
+      display: flex; flex-direction: column;
+      box-shadow: -6px 0 30px rgba(0,0,0,.25);
+      transition: right .3s ease;
+    }
+    .cart-panel.open { right: 0; }
+
+    .cart-panel-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px 24px 24px;
+      background: linear-gradient(135deg, var(--dark) 0%, #3d1f00 100%);
+      border-bottom: 2px solid var(--gold);
+      position: relative; overflow: hidden;
+    }
+    .cart-panel-header::before {
+      content: '♡'; position: absolute; right: 60px; top: 50%;
+      transform: translateY(-50%); font-size: 4rem;
+      color: rgba(200,136,42,.08); pointer-events: none;
+    }
+    .cart-header-left { display: flex; flex-direction: column; gap: 2px; }
+    .cart-header-eyebrow { font-size: .7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+    .cart-panel-header h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: #fff; font-weight: 400; }
+    .cart-panel-close {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+      color: #aaa; font-size: 1rem; cursor: pointer;
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s; flex-shrink: 0;
+    }
+    .cart-panel-close:hover { background: rgba(255,255,255,.2); color: #fff; }
+
+    .cart-items { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 12px; background: var(--cream2); }
+    .cart-empty { text-align: center; color: #bbb; font-size: .9rem; margin-top: 70px; line-height: 2; }
+    .cart-empty .empty-icon {
+      width: 70px; height: 70px; border-radius: 50%;
+      background: var(--cream); border: 2px dashed var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; font-size: 1.8rem; opacity: .6;
+    }
+    .cart-empty p { color: #aaa; font-size: .85rem; }
+
+    .cart-item {
+      background: #fff; border-radius: 14px; padding: 14px;
+      display: flex; gap: 12px; align-items: flex-start;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      border-left: 3px solid var(--gold); transition: transform .2s;
+    }
+    .cart-item:hover { transform: translateX(2px); }
+    .cart-item img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; flex-shrink: 0; }
+    .cart-item-img-placeholder {
+      width: 64px; height: 64px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, #3d1f00, #5c2d00);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+    .cart-item-info { flex: 1; }
+    .cart-item-name { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 700; color: var(--dark); }
+    .cart-item-qty { display: inline-block; background: var(--cream); color: var(--gold); font-size: .7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; letter-spacing: .5px; }
+    .cart-item-toppings { font-size: .75rem; color: #999; margin-top: 4px; line-height: 1.5; }
+    .cart-item-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+    .cart-item-price { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--gold); font-size: 1rem; }
+    .cart-item-remove { background: #fef2f2; border: none; color: #e57373; cursor: pointer; font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; transition: background .2s, color .2s; }
+    .cart-item-remove:hover { background: #e53935; color: #fff; }
+
+    .cart-footer { padding: 18px 18px 24px; border-top: 1px solid rgba(0,0,0,.07); background: #fff; }
+    .cart-total-row {
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--cream); border-radius: 12px;
+      padding: 14px 16px; margin-bottom: 14px;
+    }
+    .cart-total-label { font-size: .85rem; color: #888; font-weight: 600; letter-spacing: .5px; }
+    .cart-total-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--gold); }
+    .btn-checkout {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: #fff; border: none; border-radius: 14px; padding: 16px;
+      font-size: 1rem; font-weight: 700; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(200,136,42,.35); transition: transform .2s, box-shadow .2s;
+    }
+    .btn-checkout:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,136,42,.45); }
+    .btn-checkout svg { width: 20px; height: 20px; fill: #fff; }
+    .btn-clear-cart { width: 100%; background: none; border: none; color: #ccc; font-size: .78rem; cursor: pointer; margin-top: 10px; text-align: center; transition: color .2s; letter-spacing: .5px; }
+    .btn-clear-cart:hover { color: #e53935; }
+
+    /* responsive carrito */
+    @media (max-width: 480px) {
+      .cart-panel { max-width: 100%; }
+      .cart-fab { bottom: 20px; right: 16px; width: 52px; height: 52px; }
+    }
+
+    /* ── Toast de confirmación ── */
+    .cart-toast {
+      position: fixed; bottom: 100px; right: 24px;
+      background: var(--dark); color: #fff;
+      padding: 12px 18px; border-radius: 12px;
+      font-size: .85rem; font-weight: 600;
+      border-left: 3px solid var(--gold);
+      box-shadow: 0 4px 16px rgba(0,0,0,.3);
+      z-index: 400;
+      transform: translateY(20px); opacity: 0;
+      transition: all .3s ease;
+      pointer-events: none;
+    }
+    .cart-toast.show { transform: translateY(0); opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav>
+  <img src="logofin.png" alt="Carol's Blend" style="height: 60px; width: auto; object-fit: contain; margin-left: -20px;">
+  <ul class="nav-links">
+    <li><a href="carols_blend.html">Inicio</a></li>
+    <li><a href="menu.html">Menú</a></li>
+    <li><a href="combos.html" class="active">Combos</a></li>
+    <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-right">
+    <a href="https://wa.me/18096423773" target="_blank" class="nav-icon" title="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="var(--cream)" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.426A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.031-1.088l-.29-.172-2.895.845.874-2.827-.189-.302A7.967 7.967 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill-rule="evenodd"/></svg>
+    </a>
+    <a href="https://www.instagram.com/carols_blend1/" target="_blank" class="nav-icon" title="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="var(--cream)"/></svg>
+    </a>
+    <a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20%F0%9F%8D%AB%20Quisiera%20realizar%20un%20pedido.%20%C2%BFMe%20pueden%20ayudar%20con%20el%20men%C3%BA%20y%20opciones%20de%20entrega%3F%20%F0%9F%9A%97%E2%9C%A8" class="btn-order-nav" target="_blank">Ordenar ahora →</a>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="carols_blend.html">Inicio</a>
+  <a href="menu.html">Menú</a>
+  <a href="combos.html" class="active">Combos</a>
+  <a href="sobre-nosotros.html">Sobre nosotros</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20Quisiera%20ordenar%20%F0%9F%8D%AB" class="mobile-order-btn" target="_blank">Ordenar ahora →</a>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="eyebrow">Nuestros</span>
+    <h1>COMBOS</h1>
+    <div class="hero-divider">
+      <span class="line"></span>
+      <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+      <span class="line"></span>
+    </div>
+    <p>La mejor combinación para compartir o darte un gusto completo.</p>
+  </div>
+  <div class="hero-image">
+    <img src="combos.png" alt="Combos Carol's Blend"
+         style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0;">
+  </div>
+</section>
+
+<!-- ═══════ COMBOS ═══════ -->
+<div class="combos-grid">
+
+  <!-- COMBO 1 -->
+  <div class="card">
+    <img class="card-img" src="comb1.png" alt="Combo Mini Blend">
+    <div class="card-body">
+      <h3>Combo Mini Blend</h3>
+      <div class="card-heart">— ♡ —</div>
+      <p>20 mini brownies personalizados a tu gusto.</p>
+      <div class="card-price">RD$1,100</div>
+      <div class="card-btns">
+        <button class="btn-add-combo" onclick="addComboToCart('Combo Mini Blend', 'comb1.png', 1100)">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Agregar al carrito
+        </button>
+        <a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20%F0%9F%8D%AB%20Me%20gustar%C3%ADa%20ordenar%20el%20*Combo%20Mini%20Blend*%20%E2%80%94%2020%20mini%20brownies%20personalizados%20(RD%241%2C100).%20%C2%BFPodr%C3%ADan%20indicarme%20disponibilidad%20y%20opciones%20de%20entrega%3F%20%E2%9C%A8" class="btn-wa" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.823L.057 23.786a.5.5 0 00.651.65l5.9-1.488A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.739 9.739 0 01-4.97-1.362l-.356-.212-3.68.927.966-3.578-.232-.368A9.738 9.738 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Ordenar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMBO 2 -->
+  <div class="card">
+    <img class="card-img" src="comb2.png" alt="Combo Mini 36">
+    <div class="card-body">
+      <h3>Combo Mini 36</h3>
+      <div class="card-heart">— ♡ —</div>
+      <p>36 Unidades de Mini brownies personalizados a tu gusto.</p>
+      <div class="card-price">RD$1,400</div>
+      <div class="card-btns">
+        <button class="btn-add-combo" onclick="addComboToCart('Combo Mini 36', 'comb2.png', 1400)">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Agregar al carrito
+        </button>
+        <a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20%F0%9F%8D%AB%20Me%20gustar%C3%ADa%20ordenar%20el%20*Combo%20Mini%2036*%20%E2%80%94%2036%20unidades%20de%20mini%20brownies%20personalizados%20(RD%241.400).%20%C2%BFPodr%C3%ADan%20indicarme%20disponibilidad%20y%20opciones%20de%20entrega%3F%20%E2%9C%A8" class="btn-wa" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.823L.057 23.786a.5.5 0 00.651.65l5.9-1.488A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.739 9.739 0 01-4.97-1.362l-.356-.212-3.68.927.966-3.578-.232-.368A9.738 9.738 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Ordenar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMBO 3 -->
+  <div class="card">
+    <img class="card-img" src="comb3.png" alt="The Big Four">
+    <div class="card-body">
+      <h3>The Big Four</h3>
+      <div class="card-heart">— ♡ —</div>
+      <p>Cuatro de nuestros brownies más icónicos en su formato grande.</p>
+      <div class="card-price">RD$550</div>
+      <div class="card-btns">
+        <button class="btn-add-combo" onclick="addComboToCart('The Big Four', 'comb3.png', 550)">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Agregar al carrito
+        </button>
+        <a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20%F0%9F%8D%AB%20Me%20gustar%C3%ADa%20ordenar%20el%20*Combo%20The%20Big*%20*Four*%20(RD$550).%20%C2%BFPodr%C3%ADan%20indicarme%20disponibilidad%20y%20opciones%20de%20entrega%3F%20%E2%9C%A8" class="btn-wa" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.823L.057 23.786a.5.5 0 00.651.65l5.9-1.488A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.739 9.739 0 01-4.97-1.362l-.356-.212-3.68.927.966-3.578-.232-.368A9.738 9.738 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Ordenar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /combos-grid -->
+
+<!-- ═══════ CTA BAR ═══════ -->
+<div class="cta-bar">
+  <div class="cta-bar-left">
+    <svg width="52" height="52" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24">
+      <path d="M3 18h1m14 0h3M5 18a2 2 0 100-4 2 2 0 000 4zm12 0a2 2 0 100-4 2 2 0 000 4z"/>
+      <path d="M7 18H3V7h8l4 5h2l2 2v4h-2"/>
+      <path d="M11 7v5H7"/>
+    </svg>
+    <div>
+      <h3>¿Listo para disfrutar?</h3>
+      <p>Haz tu pedido por WhatsApp y recíbelo en la puerta de tu casa.</p>
+    </div>
+  </div>
+  <a href="https://wa.me/18096423773?text=Hola%20Carol's%20Blend!%20%F0%9F%8D%AB%20Me%20gustar%C3%ADa%20hacer%20un%20pedido.%20%C2%BFMe%20podr%C3%ADan%20indicar%20disponibilidad%20y%20opciones%20de%20entrega%3F%20%F0%9F%9A%80" class="btn-cta-wa" target="_blank">
+    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.823L.057 23.786a.5.5 0 00.651.65l5.9-1.488A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.739 9.739 0 01-4.97-1.362l-.356-.212-3.68.927.966-3.578-.232-.368A9.738 9.738 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+    Ordenar ahora por WhatsApp
+  </a>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <span class="line"></span>
+  <span class="heart">♡</span>
+  <span>Gracias por apoyar lo hecho con amor</span>
+  <span class="heart">♡</span>
+  <span class="line"></span>
+</footer>
+
+<!-- ═══════ CARRITO FLOTANTE ═══════ -->
+<button class="cart-fab" onclick="openCart()" aria-label="Ver carrito">
+  <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+  <span class="cart-badge" id="cartBadge">0</span>
+</button>
+
+<!-- ═══════ PANEL CARRITO ═══════ -->
+<div class="cart-panel-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-panel-header">
+    <div class="cart-header-left">
+      <span class="cart-header-eyebrow">Carol's Blend</span>
+      <h2>Mi Carrito</h2>
+    </div>
+    <button class="cart-panel-close" onclick="closeCart()">✕</button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="empty-icon">🍫</div>
+      <strong>Tu carrito está vacío</strong>
+      <p>Agrega algún combo para comenzar</p>
+    </div>
+  </div>
+
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <span class="cart-total-label">TOTAL</span>
+      <span class="cart-total-val" id="cartTotal">RD$0</span>
+    </div>
+    <button class="btn-checkout" onclick="checkoutWA()">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.878-1.426A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.031-1.088l-.29-.172-2.895.845.874-2.827-.189-.302A7.967 7.967 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill-rule="evenodd"/></svg>
+      Finalizar pedido por WhatsApp
+    </button>
+    <button class="btn-clear-cart" onclick="clearCart()">Vaciar carrito</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="cart-toast" id="cartToast"></div>
+
+<script>
+  /* ── MENÚ MÓVIL ── */
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    const m = document.getElementById('mobileMenu');
+    const b = document.getElementById('hamburger');
+    if (!m.contains(e.target) && !b.contains(e.target)) {
+      m.classList.remove('open');
+      b.classList.remove('open');
+    }
+  });
+
+  /* ── CARRITO (mismo localStorage que carols_blend) ── */
+  let cart = JSON.parse(localStorage.getItem('carols_cart')) || [];
+  updateCartUI();
+
+  function addComboToCart(name, img, price) {
+    const item = {
+      id: Date.now(),
+      name,
+      img,
+      price,
+      qty: 1,
+      toppings: [],
+      toppingsTotal: 0,
+      total: price
+    };
+    cart.push(item);
+    updateCartUI();
+
+    // Animación badge
+    const badge = document.getElementById('cartBadge');
+    badge.style.transform = 'scale(1.5)';
+    setTimeout(() => badge.style.transform = 'scale(1)', 250);
+
+    // Toast
+    showToast('✓ ' + name + ' agregado al carrito');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('cartToast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  function updateCartUI() {
+    localStorage.setItem('carols_cart', JSON.stringify(cart));
+    const totalItems = cart.reduce((s, i) => s + i.qty, 0);
+    const totalPrice = cart.reduce((s, i) => s + i.total, 0);
+    const badge = document.getElementById('cartBadge');
+    badge.textContent = totalItems;
+    badge.style.display = totalItems > 0 ? 'flex' : 'none';
+    document.getElementById('cartTotal').textContent = 'RD$' + totalPrice.toLocaleString('es-DO');
+    const empty  = document.getElementById('cartEmpty');
+    const footer = document.getElementById('cartFooter');
+    const itemsEl = document.getElementById('cartItems');
+    if (cart.length === 0) {
+      empty.style.display = 'block';
+      footer.style.display = 'none';
+      itemsEl.innerHTML = '';
+      itemsEl.appendChild(empty);
+      return;
+    }
+    empty.style.display = 'none';
+    footer.style.display = 'block';
+    const existing = itemsEl.querySelectorAll('.cart-item');
+    existing.forEach(el => el.remove());
+    cart.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'cart-item';
+      div.innerHTML = `
+        <img src="${item.img}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cart-item-img-placeholder" style="display:none">🍫</div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}<span class="cart-item-qty">× ${item.qty}</span></div>
+          ${item.toppings && item.toppings.length > 0 ? `<div class="cart-item-toppings">Toppings: ${item.toppings.map(t=>t.name).join(', ')}</div>` : ''}
+          <div class="cart-item-bottom">
+            <span class="cart-item-price">RD$${item.total.toLocaleString('es-DO')}</span>
+            <button class="cart-item-remove" onclick="removeItem(${item.id})">Quitar</button>
+          </div>
+        </div>`;
+      itemsEl.appendChild(div);
+    });
+  }
+
+  function removeItem(id) {
+    cart = cart.filter(i => i.id !== id);
+    updateCartUI();
+  }
+
+  function clearCart() {
+    cart = [];
+    updateCartUI();
+  }
+
+  function openCart() {
+    document.getElementById('cartPanel').classList.add('open');
+    document.getElementById('cartOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCart() {
+    document.getElementById('cartPanel').classList.remove('open');
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function checkoutWA() {
+    if (cart.length === 0) return;
+    const total = cart.reduce((s, i) => s + i.total, 0);
+    let msg = `Hola Carol's Blend! 🍫 Quisiera hacer el siguiente pedido:\n\n`;
+    cart.forEach((item, i) => {
+      msg += `*${i+1}. ${item.name}* × ${item.qty}`;
+      if (item.toppings && item.toppings.length > 0) msg += `\n   Toppings: ${item.toppings.map(t=>t.name).join(', ')}`;
+      msg += `\n   Subtotal: RD$${item.total.toLocaleString('es-DO')}\n\n`;
+    });
+    msg += `*Total general: RD$${total.toLocaleString('es-DO')}*\n\n¿Pueden confirmar disponibilidad y entrega? ✨`;
+    window.open(`https://wa.me/18096423773?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+</script>
+
+</body>
+</html>
